@@ -6,6 +6,7 @@ radio.onReceivedString(function (receivedString: string) {
 
     serial.writeLine(receivedString);
   
+  
 })
 input.onButtonPressed(Button.A, function () {
       serial.writeLine("test A");
