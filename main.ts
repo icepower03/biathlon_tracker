@@ -8,3 +8,12 @@ radio.onReceivedString(function (receivedString: string) {
 input.onButtonPressed(Button.A, function () {
       serial.writeLine("test A");
 })
+
+
+serial.onDataReceived(serial.delimiters(Delimiters.Pipe), () => {
+  let msg=serial.readUntil(serial.delimiters(Delimiters.Pipe));
+    basic.showString(msg);
+    radio.sendString(msg);
+
+})
+
